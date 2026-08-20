@@ -4,6 +4,8 @@
   - [名词速查](guide/glossary.md)
 - [SSE 流式协议源码精讲](sse/README.md)
 - [项目文档](docs/autobots/)
+  - [全栈 AI 应用面试作战手册](docs/autobots/Autobots-全栈AI应用面试作战手册.md)
+  - [全栈面试技术文档](docs/autobots/autobots-全栈面试技术文档.md)
   - [本地开发](docs/autobots/local-dev.md)
   - [Nacos 配置迁移](docs/autobots/nacos-config-migration.md)
 - [PDF 下载](assets/)
