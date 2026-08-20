@@ -57,76 +57,135 @@
       color: var(--theme-color);
     }
 
-    /* 封面页样式 */
-    /* 注意:docsify 会往封面注入随机浅色渐变(inline),必须用 !important 覆盖 */
-    .cover.show {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 55%, #6c5ce7 100%) !important;
-      color: #fff !important;
+    /* ============ 封面页样式(精确覆盖 docsify 默认样式) ============ */
+    /* docsify 会动态注入背景渐变 inline,且 h1/按钮有默认样式,全部用高特异性 + !important 覆盖 */
+
+    section.cover.show {
+      background: linear-gradient(160deg, #0f2027 0%, #203a43 50%, #2c5364 100%) !important;
     }
-    .cover.show h1 {
-      font-size: 56px;
-      font-weight: 700;
-      letter-spacing: 2px;
+
+    section.cover.show .cover-main {
+      max-width: 820px;
+    }
+
+    /* 主标题:大号白色粗体,去掉 docsify 默认的白底圆角框 */
+    section.cover.show .cover-main h1 {
+      font-size: 62px !important;
+      font-weight: 800 !important;
+      letter-spacing: 3px !important;
+      color: #fff !important;
+      background: transparent !important;
       border: none !important;
-      padding: 0;
-      margin-bottom: 24px;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 24px 0 8px !important;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+    }
+    section.cover.show .cover-main h1 a {
       color: #fff !important;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.35);
-    }
-    .cover.show h1::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: #fff;
-      margin: 16px auto 0;
-      border-radius: 2px;
-    }
-    .cover.show blockquote {
-      color: #fff !important;
-      background: rgba(255,255,255,0.12);
-      border-left: 4px solid rgba(255,255,255,0.6);
-      padding: 10px 20px;
-      border-radius: 4px;
-      margin: 16px 0;
-    }
-    .cover.show blockquote p {
-      margin: 4px 0;
-      color: #fff !important;
-    }
-    .cover.show ul {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0;
-    }
-    .cover.show ul li {
-      padding: 6px 0;
-      font-size: 16px;
-      color: #fff !important;
-    }
-    .cover.show img {
-      margin: 8px 4px;
-      height: 22px;
-      vertical-align: middle;
-    }
-    .cover.show a {
-      color: #fff !important;
+      background: transparent !important;
       text-decoration: none;
-      border: 2px solid rgba(255,255,255,0.8);
-      padding: 10px 24px;
-      margin: 8px;
-      border-radius: 24px;
-      display: inline-block;
-      font-weight: 600;
-      transition: all 0.2s;
-      background: rgba(255,255,255,0.1);
     }
-    .cover.show a:hover {
-      background: rgba(255,255,255,0.9) !important;
-      color: #6c5ce7 !important;
+
+    /* 副标题(blockquote) */
+    section.cover.show .cover-main blockquote {
+      color: rgba(255, 255, 255, 0.82) !important;
+      background: transparent !important;
+      border: none !important;
+      font-size: 20px !important;
+      line-height: 1.7 !important;
+      padding: 8px 0 4px !important;
+      margin: 0 auto 12px !important;
     }
-    .cover.show p {
+    section.cover.show .cover-main blockquote p {
+      color: rgba(255, 255, 255, 0.82) !important;
+      margin: 4px 0 !important;
+    }
+
+    /* 分隔线 */
+    section.cover.show .cover-main hr {
+      border: none !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent) !important;
+      margin: 20px auto !important;
+      width: 60% !important;
+    }
+
+    /* 说明文字段落 */
+    section.cover.show .cover-main p {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-size: 16px !important;
+      line-height: 1.8 !important;
+    }
+
+    /* 特性列表 */
+    section.cover.show .cover-main ul {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 20px 0 28px !important;
+    }
+    section.cover.show .cover-main ul li {
+      padding: 7px 0 !important;
+      font-size: 16px !important;
+      color: rgba(255, 255, 255, 0.92) !important;
+      line-height: 1.7 !important;
+    }
+    section.cover.show .cover-main ul li::before {
+      content: '✦';
+      color: #74b9ff;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+
+    /* 徽章(badge 图片) */
+    section.cover.show .cover-main img {
+      height: 22px !important;
+      margin: 4px 5px !important;
+      vertical-align: middle !important;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    /* 按钮:胶囊白边按钮(精确匹配 docsify 的选择器) */
+    section.cover.show .cover-main > p:last-child a {
+      border: 2px solid rgba(255, 255, 255, 0.65) !important;
+      border-radius: 999px !important;
       color: #fff !important;
+      background: rgba(255, 255, 255, 0.06) !important;
+      display: inline-block !important;
+      font-size: 1.05rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.05em !important;
+      margin: 0.6em 0.8em !important;
+      padding: 0.8em 2.2em !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+    }
+    /* 最后一个按钮(主要 CTA):主题色实心 */
+    section.cover.show .cover-main > p:last-child a:last-child {
+      background: #6c5ce7 !important;
+      border-color: #6c5ce7 !important;
+    }
+    section.cover.show .cover-main > p:last-child a:hover {
+      background: #fff !important;
+      border-color: #fff !important;
+      color: #2c5364 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+    }
+
+    /* 底部版权角标 */
+    section.cover.show::after {
+      content: 'Agent 学习指南 · 基于 autobots & agplateform 项目实战 · 2026';
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 1px;
     }
   </style>
 </head>
