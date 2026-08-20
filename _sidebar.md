@@ -1,0 +1,6 @@
+- [首页](/)
+- [前端转 Agent 学习指南](guide/README.md)
+  - [90 天学习路径](guide/learning-path.md)
+  - [名词速查](guide/glossary.md)
+- [SSE 流式协议源码精讲](sse/README.md)
+- [关于](about.md)
