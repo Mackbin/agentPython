@@ -56,6 +56,75 @@
     .sidebar-nav h2 {
       color: var(--theme-color);
     }
+
+    /* 封面页样式 */
+    .cover.show {
+      background: linear-gradient(135deg, #6c5ce7 0%, #0984e3 50%, #00b894 100%);
+      color: #fff;
+    }
+    .cover.show h1 {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border: none;
+      padding: 0;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .cover.show h1::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #fff;
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
+    .cover.show blockquote {
+      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.1);
+      border-left: 4px solid rgba(255,255,255,0.6);
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin: 16px 0;
+    }
+    .cover.show blockquote p {
+      margin: 4px 0;
+    }
+    .cover.show ul {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    .cover.show ul li {
+      padding: 6px 0;
+      font-size: 16px;
+      color: rgba(255,255,255,0.95);
+    }
+    .cover.show img {
+      margin: 8px 4px;
+      height: 22px;
+      vertical-align: middle;
+    }
+    .cover.show a {
+      color: #fff;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.8);
+      padding: 10px 24px;
+      margin: 8px;
+      border-radius: 24px;
+      display: inline-block;
+      font-weight: 600;
+      transition: all 0.2s;
+      background: rgba(255,255,255,0.1);
+    }
+    .cover.show a:hover {
+      background: rgba(255,255,255,0.9);
+      color: #6c5ce7;
+    }
+    .cover.show p {
+      color: rgba(255,255,255,0.95);
+    }
   </style>
 </head>
 <body>
@@ -66,6 +135,7 @@
       repo: 'Mackbin/agentPython',
       loadSidebar: true,
       subMaxLevel: 3,
+      coverpage: true,
       search: {
         placeholder: '搜索',
         noData: '无结果',
