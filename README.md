@@ -40,7 +40,18 @@ agplateform `runtime/agentic_runtime/api/sse.py` 逐行分析,共 20 章:
 
 ---
 
-## 🚀 快速开始
+## � PDF 离线版
+
+如果你想要 PDF 版本离线看或打印,可以下载:
+
+- [前端转 Agent 学习指南.pdf](assets/前端转Agent学习指南.pdf)(945 KB)
+- [SSE 流式协议源码精讲.pdf](assets/SSE流式协议源码精讲.pdf)(675 KB)
+
+> PDF 内容与在线版一致,在线版会持续更新
+
+---
+
+## �🚀 快速开始
 
 | 我想... | 看这里 |
 |---|---|

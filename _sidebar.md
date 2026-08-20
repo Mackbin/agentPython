@@ -3,4 +3,5 @@
   - [90 天学习路径](guide/learning-path.md)
   - [名词速查](guide/glossary.md)
 - [SSE 流式协议源码精讲](sse/README.md)
+- [PDF 下载](assets/)
 - [关于](about.md)
