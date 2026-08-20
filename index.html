@@ -58,18 +58,20 @@
     }
 
     /* 封面页样式 */
+    /* 注意:docsify 会往封面注入随机浅色渐变(inline),必须用 !important 覆盖 */
     .cover.show {
-      background: linear-gradient(135deg, #6c5ce7 0%, #0984e3 50%, #00b894 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 55%, #6c5ce7 100%) !important;
+      color: #fff !important;
     }
     .cover.show h1 {
       font-size: 56px;
       font-weight: 700;
       letter-spacing: 2px;
-      border: none;
+      border: none !important;
       padding: 0;
       margin-bottom: 24px;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      color: #fff !important;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.35);
     }
     .cover.show h1::after {
       content: '';
@@ -81,8 +83,8 @@
       border-radius: 2px;
     }
     .cover.show blockquote {
-      color: rgba(255,255,255,0.9);
-      background: rgba(255,255,255,0.1);
+      color: #fff !important;
+      background: rgba(255,255,255,0.12);
       border-left: 4px solid rgba(255,255,255,0.6);
       padding: 10px 20px;
       border-radius: 4px;
@@ -90,6 +92,7 @@
     }
     .cover.show blockquote p {
       margin: 4px 0;
+      color: #fff !important;
     }
     .cover.show ul {
       list-style: none;
@@ -99,7 +102,7 @@
     .cover.show ul li {
       padding: 6px 0;
       font-size: 16px;
-      color: rgba(255,255,255,0.95);
+      color: #fff !important;
     }
     .cover.show img {
       margin: 8px 4px;
@@ -107,7 +110,7 @@
       vertical-align: middle;
     }
     .cover.show a {
-      color: #fff;
+      color: #fff !important;
       text-decoration: none;
       border: 2px solid rgba(255,255,255,0.8);
       padding: 10px 24px;
@@ -119,11 +122,11 @@
       background: rgba(255,255,255,0.1);
     }
     .cover.show a:hover {
-      background: rgba(255,255,255,0.9);
-      color: #6c5ce7;
+      background: rgba(255,255,255,0.9) !important;
+      color: #6c5ce7 !important;
     }
     .cover.show p {
-      color: rgba(255,255,255,0.95);
+      color: #fff !important;
     }
   </style>
 </head>

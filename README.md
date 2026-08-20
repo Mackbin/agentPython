@@ -40,7 +40,7 @@ agplateform `runtime/agentic_runtime/api/sse.py` 逐行分析,共 20 章:
 
 ---
 
-## � PDF 离线版
+## 📥 PDF 离线版
 
 如果你想要 PDF 版本离线看或打印,可以下载:
 
@@ -51,7 +51,7 @@ agplateform `runtime/agentic_runtime/api/sse.py` 逐行分析,共 20 章:
 
 ---
 
-## �🚀 快速开始
+## 🚀 快速开始
 
 | 我想... | 看这里 |
 |---|---|
