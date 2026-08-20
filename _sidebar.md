@@ -3,5 +3,8 @@
   - [90 天学习路径](guide/learning-path.md)
   - [名词速查](guide/glossary.md)
 - [SSE 流式协议源码精讲](sse/README.md)
+- [项目文档](docs/autobots/)
+  - [本地开发](docs/autobots/local-dev.md)
+  - [Nacos 配置迁移](docs/autobots/nacos-config-migration.md)
 - [PDF 下载](assets/)
 - [关于](about.md)
