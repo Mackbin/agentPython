@@ -1,14 +1,26 @@
-# 前端转 Agent 学习指南
+# Agent 基础：从前端走向 Agent
 
 > 基于 autobots & agplateform 项目实战
 > 面向:前端工程师转 AI Agent 方向
-> 你的优势:autobots 前端是你做的,SSE / 语音 / Page Agent SDK 你已经会一半
+> 本文负责解释 Agent 概念和技术地图；项目具体链路请先看 [Autobots 项目资料](../docs/autobots/README.md)。
+
+## 本文怎么用
+
+这是一份“概念总览”，不是项目源码手册，也不是 90 天计划。建议按下面顺序阅读：
+
+```text
+Agent 核心循环 -> LLM / Tool / Memory / RAG
+  -> SSE 流式交互 -> Python/Rust Runtime
+  -> MCP -> 多 Agent与编排
+```
+
+需要逐行理解 SSE 后端时，转到 [SSE 源码精讲](../sse/README.md)；需要安排练习时，转到 [90 天学习路径](learning-path.md)。
 
 ---
 
 ## 目录
 
-1. [为什么前端转 Agent 是当下最好的窗口](#1-为什么前端转-agent-是当下最好的窗口)
+1. [学习目标与前置知识](#1-学习目标与前置知识)
 2. [Agent 是什么 — 用前端能懂的话讲](#2-agent-是什么-用前端能懂的话讲)
 3. [你已经会的:从 autobots 前端切入](#3-你已经会的从-autobots-前端切入)
 4. [Agent 的四大支柱:LLM / Tool / Memory / RAG](#4-agent-的四大支柱llm--tool--memory--rag)
@@ -28,18 +40,18 @@
 
 ---
 
-## 1. 为什么前端转 Agent 是当下最好的窗口
+## 1. 学习目标与前置知识
 
-### 1.1 行业窗口
+本文不是行业趋势介绍，而是一张从前端进入 Agent 工程的技术地图。读完后，你应该能：
 
-- **Agent 是 2025-2026 的主战场**:OpenAI、Anthropic、阿里、字节都在押注 Agent
-- **前端在 Agent 链路里价值极高**:流式聊天、语音、浏览器内 Agent、可视化编排,全是前端活
-- **Codex / Cursor / Claude Code 让前端能全栈**:你现在用 Codex 一把梭前后端,说明工具链已经成熟
-- **Agent 前端 ≠ 传统前端**:要懂 SSE、音频流、工具调用 UI、状态机,门槛比普通中后台高,所以溢价高
+- 解释一次 Agent 请求从用户输入到最终结果的生命周期。
+- 区分普通 LLM Chat、RAG Chat 和带工具循环的 Agent。
+- 看懂 SSE、工具调用、Memory、RAG 和 Runtime 的基本边界。
+- 从前端状态反推后端事件、任务状态和异常处理。
 
-### 1.2 你的独特优势(autobots 前端经验)
+建议前置知识：TypeScript、HTTP、Promise/async、组件状态管理，以及至少一个 Vue 或 React 项目经验。
 
-你做过这些东西,这些都是 Agent 前端的核心能力:
+你在 Autobots 前端中已有的经验，可以这样映射到 Agent：
 
 | 你做过的 | 在 Agent 领域叫什么 | 重要程度 |
 |---|---|---|
@@ -49,7 +61,7 @@
 | Page Agent SDK | In-page Agent | ⭐⭐⭐⭐⭐ |
 | React 状态管理 | Agent State Machine | ⭐⭐⭐⭐ |
 
-**结论**:你不是"转行",而是"把前端能力延伸到 Agent 链路"。后端部分用 Codex 帮你写,你只需要"看懂 + 能改 + 能调"。
+学习策略：先看第 2-5 章建立 Agent 和流式交互的基础，再按兴趣选择浏览器 Agent、语音、Runtime、MCP、RAG 和多 Agent章节。后端代码由 Codex 辅助生成时，重点放在约束、审查、测试和联调，不把生成代码本身等同于掌握。
 
 ---
 
@@ -170,7 +182,7 @@ event: error         → 出错
 |---|---|---|
 | DeepSeek | autobots 主力 | `autobots-ai/ai/llm_loader.py` |
 | 通义千问(qwen-flash) | 云上快模型 | 同上 |
-| qwen2.5-72b | 自建推理集群 | `pre-llm-inference-api.brapp.com` |
+| qwen2.5-72b | 自建推理服务 | 由部署环境配置 |
 | Anthropic Claude | agplateform Rust runtime | `rust/crates/ap-runtime/src/model/` |
 | OpenRouter | 多模型路由 | Nacos shared-llm.yaml |
 
@@ -821,4 +833,4 @@ Agent 执行代码要隔离:
 ---
 
 *本文档基于 autobots & agplateform 项目源码整理*
-*生成时间:2026-08-20*
+*本文按项目资料库结构维护，源码快照和内容状态以文档顶部说明为准。*

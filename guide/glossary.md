@@ -2,6 +2,8 @@
 
 Agent 领域的常用术语,按字母排序。
 
+> 本文只做查词，不承担学习主线。先看 [Agent 基础](README.md) 或 [项目总览](../docs/autobots/README.md)。
+
 ---
 
 ## A

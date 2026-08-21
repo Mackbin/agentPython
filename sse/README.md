@@ -2,7 +2,12 @@
 
 > 基于 agplateform `runtime/agentic_runtime/api/sse.py` 逐行分析
 > 面向:前端转 Agent 工程师
-> 文件:`/Users/moshangyanyu/Documents/百融/产品研发部/agplateform/runtime/agentic_runtime/api/sse.py`
+> 本文是专题深挖；先看 [Autobots 项目资料](../docs/autobots/README.md) 了解它在系统中的位置。
+> 源码文件：`agplateform/runtime/agentic_runtime/api/sse.py`
+
+## 本文解决什么问题
+
+前端消费流式回答时，真正困难的不是“把字符串追加到页面”，而是事件协议、半包/粘包、有界队列、背压、心跳、取消和资源清理。本文只聚焦这些 SSE 生产端问题；Agent 业务、RAG 和面试题请回到项目资料或面试手册。
 
 ---
 
@@ -1414,4 +1419,4 @@ async def run_agent(sse: SimpleSSEStream):
 ---
 
 *本文档基于 agplateform `runtime/agentic_runtime/api/sse.py` 源码分析*
-*生成时间:2026-08-20*
+*本文按项目资料库结构维护，源码路径和实现细节需要随 agplateform 分支复核。*

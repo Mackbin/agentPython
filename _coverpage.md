@@ -9,7 +9,7 @@
 
 ---
 
-从你做过的 autobots 前端切入,逐步深入 SSE 流式协议、Python / Rust Runtime、MCP 协议与多 Agent 协作。
+从项目全貌开始，逐步深入 SSE 流式协议、Python / Rust Runtime、MCP 协议与多 Agent 协作。
 
 - 🤖 **Agent 四大支柱** — LLM / Tool / Memory / RAG
 - 📡 **SSE 流式协议** — 源码级精讲
@@ -18,6 +18,6 @@
 - 🐳 **多 Agent 协作** — A2A / Swarm
 - 📅 **90 天学习路径** — 分周可执行
 
-[📚 开始阅读](guide/README.md)
+[🧭 项目总览](docs/autobots/README.md)
+[📚 Agent 基础](guide/README.md)
 [📖 SSE 源码精讲](sse/README.md)
-[📥 PDF 下载](assets/)

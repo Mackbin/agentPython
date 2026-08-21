@@ -4,6 +4,8 @@
 > 范围：Java `application.yml`（gateway / user / external）+ Python `autobots-ai/.env_*`  
 > 不在本期：`autobots-frontend` 的 Vite 构建期 `.env.*`（构建时注入，非运行时配置中心）
 
+> 本文是独立的工程方案，不属于 Agent 学习主线。只有在需要理解运行时配置、环境隔离或 Nacos 接入时阅读。
+
 ---
 
 ## 1. 目标
@@ -24,13 +26,13 @@
 
 | 环境 | `NACOS_SERVER_ADDR` | `NACOS_NAMESPACE` | 账号 |
 |------|---------------------|-------------------|------|
-| POC | `10.100.123.84:8848` | `poc` | `NACOS_USERNAME` / `NACOS_PASSWORD` |
-| Pre | 同上 | `pre` | 同上 |
-| Prod | `nacos-public-yz.100credit.cn:80` | `a2644ce7-54ef-43a7-9a56-1bf7ce3f7897` | `NACOS_USERNAME` / `NACOS_PASSWORD` |
+| POC | `${NACOS_SERVER_ADDR}` | `${NACOS_NAMESPACE}` | `NACOS_USERNAME` / `NACOS_PASSWORD` |
+| Pre | `${NACOS_SERVER_ADDR}` | `${NACOS_NAMESPACE}` | `NACOS_USERNAME` / `NACOS_PASSWORD` |
+| Prod | `${NACOS_SERVER_ADDR}` | `${NACOS_NAMESPACE}` | `NACOS_USERNAME` / `NACOS_PASSWORD` |
 
 说明：
 
-- POC/Pre 的 namespace 若控制台创建的是「名称」而非 UUID，以控制台实际 **Namespace ID** 为准填入 `NACOS_NAMESPACE`。
+- 各环境的实际地址和 Namespace ID 由部署环境注入，本文不记录内网地址或真实 Namespace ID。
 - 账号密码仅通过部署 Secret / CI 变量注入。
 
 ---
@@ -257,7 +259,7 @@ CONF_ENV=poc                 # Python
 
 - [x] 仓库 `application.yml` 仅保留通用 + local
 - [ ] `.env_poc|pre|prod` 改为 example 或移除（保留作回退，待 Nacos 稳定后再删）
-- [ ] 更新 `CLAUDE.md` / `README` / `docs/local-dev.md` / `PROJECT_NAVIGATOR.md`
+  - [ ] 更新项目 README、开发文档和 `PROJECT_NAVIGATOR.md`
 - [ ] Pre / Prod 配置发布与灰度
 
 ### Phase 4 — 加固

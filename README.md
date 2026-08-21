@@ -1,94 +1,69 @@
-# Agent 学习指南
+# Agent 学习资料库
 
-> 基于 autobots & agplateform 项目实战
-> 面向:前端工程师转 AI Agent 方向
+> 基于 Autobots 与 agplateform 项目整理，面向前端工程师理解 AI 应用、Agent Runtime 和全栈交付。
 
----
+这个仓库不是两个项目的源码，而是围绕项目源码整理的学习与面试资料。阅读时请先建立项目全貌，再按需要深入专题，不要从头顺序通读所有文件。
 
-## 📚 目录
+## 从这里开始
 
-本站点包含两份学习资料:
+| 目标 | 入口 | 用时 |
+| --- | --- | --- |
+| 我第一次看这个仓库 | [项目总览](docs/autobots/README.md) | 5 分钟 |
+| 我要快速理解架构和 Agent 逻辑 | [项目快速拆解](docs/autobots/Agent项目快速拆解与面试知识卡.md) | 15 分钟 |
+| 我要准备面试 | [全栈 AI 应用面试作战手册](docs/autobots/Autobots-全栈AI应用面试作战手册.md) | 1-3 天 |
+| 我要查后端、RAG 和数据一致性 | [全栈面试技术文档](docs/autobots/autobots-全栈面试技术文档.md) | 按问题查 |
+| 我要理解 SSE 后端实现 | [SSE 源码精讲](sse/README.md) | 半天 |
+| 我要按计划补 Agent 基础 | [前端转 Agent 学习指南](guide/README.md) | 按章节 |
+| 我要执行长期学习计划 | [90 天学习路径](guide/learning-path.md) | 12 周 |
 
-### 1. [前端转 Agent 学习指南](guide/README.md)
+## 推荐阅读顺序
 
-完整的 90 天学习路径,从你做过的 autobots 前端切入,逐步深入到后端 Runtime、Rust、MCP、多 Agent 协作。
+```text
+项目总览
+  -> 项目快速拆解
+  -> Agent 基础概念（LLM / Tool / Memory / RAG）
+  -> SSE 源码精讲
+  -> 全栈面试作战手册
+  -> 全栈技术文档（遇到具体问题再查）
+  -> 90 天学习路径
+```
 
-- Agent 四大支柱:LLM / Tool / Memory / RAG
-- SSE 流式协议(你做过的一半)
-- 浏览器内 Agent(Page Agent SDK)
-- 语音 Agent(ASR / TTS / VAD)
-- Python / Rust Runtime
-- MCP 协议
-- RAG 检索增强
-- 多 Agent 协作(A2A / Swarm)
-- 90 天分周可执行学习手册
+## 文档分工
 
-### 2. [SSE 流式协议源码精讲](sse/README.md)
+### 项目与面试
 
-agplateform `runtime/agentic_runtime/api/sse.py` 逐行分析,共 20 章:
+- [项目总览](docs/autobots/README.md)：Autobots、agplateform、WebGPT 的关系、模块边界和代码入口。
+- [项目快速拆解](docs/autobots/Agent项目快速拆解与面试知识卡.md)：只保留主线，适合第一次理解和面试前复习。
+- [面试作战手册](docs/autobots/Autobots-全栈AI应用面试作战手册.md)：完整的面试准备材料，包含事实边界、调用链、STAR、题库和系统设计。
+- [全栈技术文档](docs/autobots/autobots-全栈面试技术文档.md)：偏工程参考，深入 Java、Python、RAG、数据库、安全、稳定性和排障。
+- [Nacos 配置迁移方案](docs/autobots/nacos-config-migration.md)：独立的配置中心设计方案，不属于 Agent 学习主线。
 
-- SSEEventType 事件类型枚举
-- SSEEvent 事件对象
-- SSEStream 流管理器
-- 事件优先级设计
-- 背压丢弃策略(精妙)
-- OUTPUT_DISCARD 撤回机制
-- 异步迭代器(最难)
-- 与 FastAPI 的集成
-- 与前端的对应关系
-- 自己实现最简版本
+### Agent 专题
 
----
+- [前端转 Agent 学习指南](guide/README.md)：从前端视角解释 Agent、SSE、Runtime、MCP、RAG 和多 Agent。
+- [SSE 源码精讲](sse/README.md)：围绕 agplateform 的 `sse.py`，分析事件、队列、背压、心跳和取消。
+- [90 天学习路径](guide/learning-path.md)：把概念阅读转成每周练习和验证任务。
+- [名词速查](guide/glossary.md)：只用于查术语，不作为主线阅读。
 
-## 📥 PDF 离线版
+## 两个项目先这样理解
 
-如果你想要 PDF 版本离线看或打印,可以下载:
+```text
+agplateform = Agent 平台控制面与运行时
+Autobots    = 基于平台能力构建的企业智能客服业务
+WebGPT      = Autobots 依赖的网页知识抓取执行面
+```
 
-- [前端转 Agent 学习指南.pdf](assets/前端转Agent学习指南.pdf)(945 KB)
-- [SSE 流式协议源码精讲.pdf](assets/SSE流式协议源码精讲.pdf)(675 KB)
+Autobots 的主问答链路偏 RAG：`知识检索 -> Prompt -> 模型生成 -> 流式返回`。
+agplateform 的 Runtime 才包含更典型的 Agent Loop：`模型判断 -> 调用工具 -> 观察结果 -> 继续判断`。
 
-> PDF 内容与在线版一致,在线版会持续更新
+## 内容边界
 
----
+- 文档中的“源码事实”来自指定时间的项目源码快照，版本变化后需要重新核对。
+- `主导 / 参与 / AI 辅助 / 掌握 / 建议` 代表不同的个人贡献边界，面试时不要混用。
+- 没有可靠统计口径时，不要把 QPS、准确率、成本或性能提升写成确定事实。
+- 本仓库只提交学习资料，不应提交公司凭据、内网密码、客户数据或可复用 Token。
 
-## 🚀 快速开始
+## 离线资料
 
-| 我想... | 看这里 |
-|---|---|
-| 建立整体认知 | [前端转 Agent 学习指南](guide/README.md) |
-| 深入 SSE 细节 | [SSE 流式协议源码精讲](sse/README.md) |
-| 看学习路径 | [90 天学习路径](guide/learning-path.md) |
-| 查名词解释 | [名词速查](guide/glossary.md) |
-
----
-
-## 🎯 你是谁
-
-如果你是:
-
-- **做过 autobots 前端的工程师**:你已经会一半了,从 [第 3 章](guide/README.md#3-你已经会的从-autobots-前端切入) 开始
-- **纯前端工程师**:从头开始,先看 [第 2 章 Agent 是什么](guide/README.md#2-agent-是什么-用前端能懂的话讲)
-- **后端工程师**:跳到 [第 8 章 Python Runtime](guide/README.md#8-python-agent-runtime-从-fastapi-学起)
-
----
-
-## 📝 项目背景
-
-### autobots
-
-业务 AI 服务(智能客服 / 线索 / 语音通话):
-- Python 3.10+ / FastAPI
-- LangChain + Milvus + DeepSeek/通义
-- Vue 3 + TypeScript 前端
-
-### agplateform
-
-企业级 Agent 协作平台:
-- Java 网关(Spring Cloud Gateway)
-- Python Runtime(legacy)+ Rust Runtime(新一代)
-- Go Orchestrator(A2A 多智能体编排)
-- React 18 + TypeScript 前端
-
----
-
-*生成时间:2026-08-20*
+- [前端转 Agent 学习指南 PDF](assets/前端转Agent学习指南.pdf)
+- [SSE 流式协议源码精讲 PDF](assets/SSE流式协议源码精讲.pdf)
